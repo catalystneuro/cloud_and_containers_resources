@@ -1,5 +1,5 @@
 ## Setup of EC2 instances
-- Choose EC2 configurations
+- Choose EC2 instance [type](https://aws.amazon.com/ec2/instance-types/)
 
 - Change `Instance > Security > Security groups > Inbound rules` to allow ssh on port 22 from any IP. Same for forwarding of other relevant ports (8888, 5000, 80...)
 
