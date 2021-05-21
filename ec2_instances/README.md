@@ -12,6 +12,13 @@
 - [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) 
 - [CLI configuration](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
 
+* Users will need (provided by the admin):
+    * AWS Access Key ID
+    * AWS Secret Access Key
+    * Public key file (.pem)
+    * EC2 instance username
+    * EC2 instance password
+
 - To create a catalystneuro profile for your aws cli:
 ```
 $ aws configure --profile catalystneuro
