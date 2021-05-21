@@ -1,2 +1,2 @@
 # aws-resources
-AWS resources
+AWS resources for the CatalystNeuro team
