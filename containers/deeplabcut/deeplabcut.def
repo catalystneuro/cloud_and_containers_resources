@@ -10,7 +10,8 @@ From: deeplabcut/deeplabcut:latest-gui
     export DISPLAY=unix:1.0
     
 %post
-    # Host-spacific arguments - change it accordingly
+    # Host-spacific arguments
+    # Should work on DANDI hub as it is, change it for other environments
     GID=100
     GNAME=users
     UID=1000
