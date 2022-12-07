@@ -1,0 +1,27 @@
+# This is the Singularity definition file for a DeepLabCut container, 
+# configured to work on DANDI hub
+# Adapted from: https://github.com/DeepLabCut/DeepLabCut/tree/main/docker
+
+Bootstrap: docker
+#From: deeplabcut/deeplabcut:2.2.1.1-gui-cuda11.0.3-runtime-ubuntu18.04
+From: deeplabcut/deeplabcut:latest-gui
+
+%environment
+    export DISPLAY=unix:1.0
+    
+%post
+    # Host-spacific arguments - change it accordingly
+    GID=100
+    GNAME=users
+    UID=1000
+    UNAME=jovyan
+    
+    # Create the application directory and set its permissions.
+    mkdir -p /home
+    mkdir -p /app
+    groupadd -g ${GID} ${GNAME} || groupmod -o -g ${GID} ${GNAME}
+    useradd -d /home -s /bin/bash -u ${UID} -g ${GID} ${UNAME}
+    chown -R ${UNAME}:${GNAME} /home
+    chown -R ${UNAME}:${GNAME} /app
+    
+    cd app
