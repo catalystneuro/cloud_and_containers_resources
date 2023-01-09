@@ -3,8 +3,8 @@
 # Adapted from: https://github.com/DeepLabCut/DeepLabCut/tree/main/docker
 
 Bootstrap: docker
-#From: deeplabcut/deeplabcut:2.2.1.1-gui-cuda11.0.3-runtime-ubuntu18.04
-From: deeplabcut/deeplabcut:latest-gui
+From: deeplabcut/deeplabcut:2.2.1.1-gui-cuda11.7.0-runtime-ubuntu20.04
+#From: deeplabcut/deeplabcut:latest-gui
 
 %environment
     export DISPLAY=unix:1.0
@@ -24,5 +24,9 @@ From: deeplabcut/deeplabcut:latest-gui
     useradd -d /home -s /bin/bash -u ${UID} -g ${GID} ${UNAME}
     chown -R ${UNAME}:${GNAME} /home
     chown -R ${UNAME}:${GNAME} /app
+
+    apt update
+    # apt install nvidia-cuda-toolkit -y
+    apt install libcudnn8 libcudnn8-dev -y
     
     cd app
