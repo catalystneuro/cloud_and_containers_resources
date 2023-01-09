@@ -15,3 +15,8 @@ singularity run --nv --bind /tmp/.X11-unix:/tmp/.X11-unix --bind /home/jovyan/.X
 ```
 
 The GUI should open in a few seconds.
+
+
+# Troubleshoot
+
+For long running processes, the Desktop view in DANDI hub might lock the screen. To avoid this: https://github.com/dandi/dandi-hub/issues/44#issuecomment-1369105088
