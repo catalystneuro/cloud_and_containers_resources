@@ -1,20 +1,25 @@
+# Build Image and publish to Dockerhub
+
+```bash
+# Build image
+$ DOCKER_BUILDKIT=1 docker build -t catalystneuro/dlc_dandi:gui-0.1.0 .
+
+# Publish image
+$ docker push catalystneuro/dlc_dandi:gui-0.1.0
+```
+
 # Run DeepLabCut GUI on DANDI Hub
 
 1. Choose a GPU instance, and move to your working directory.
 
-2. Create a `deeplabcut.def` file like the one above.
+2. Create or copy the file `run_dlc_gui.sh`
 
-3. In a terminal, run (this will create a `deeplabcut.sif` file):
+3. Open a Desktop view. Within the Desktop view, open a terminal and run:
 ```bash
-singularity build deeplabcut.sif deeplabcut.def 
+bash run_dlc_gui.sh
 ```
 
-4. Open a Desktop view. Within the Desktop view, open a terminal and run:
-```bash
-singularity run --nv --bind /tmp/.X11-unix:/tmp/.X11-unix --bind /home/jovyan/.Xauthority:/home/developer/.Xauthority --bind $(pwd):/app  deeplabcut.sif
-```
-
-The GUI should open in a few seconds.
+The first time you run it migth take a few minutes to complete. In any future runs the GUI should open in a few seconds.
 
 
 ## Troubleshoot
@@ -24,7 +29,7 @@ The GUI should open in a few seconds.
 - If getting `OSError: [Errno 30] Read-only file system: '/usr/local/lib/python3.8/dist-packages/deeplabcut/pose_estimation_tensorflow/models/pretrained/resnet_v1_152.ckpt`: https://github.com/DeepLabCut/DeepLabCut/issues/1828#issuecomment-1124867766 
 
 
-# Run DeepLabCut Jupyter examples on DANDI Hub
+# Run DeepLabCut Jupyter examples on DANDI Hub - TODO
 
 Create a conda environment and add it to Jupyter kernels:
 ```bash
@@ -40,3 +45,7 @@ $ conda env create -f DEEPLABCUT.yaml
 $ conda install -c anaconda ipykernel
 $ python -m ipykernel install --user --name=env_dlc
 ```
+
+# References
+
+- [DLC models overview](https://www.youtube.com/watch?v=ILsuC4icBU0&ab_channel=DeepLabCut)

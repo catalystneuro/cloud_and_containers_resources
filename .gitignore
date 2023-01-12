@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Apptainer
+*.sif
+
+*run_dlc_gui_local.sh
